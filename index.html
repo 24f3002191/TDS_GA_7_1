@@ -41,7 +41,7 @@
       <section data-auto-animate>
         <h1>Quarterly Earnings Report</h1>
         <p class="muted">Interactive presentation powered by <strong>RevealJS</strong></p>
-        <p class="chip">Contact: 24f3002191@ds.study.iitm.ac.in</p>
+        <p><strong>Email:</strong> 24f3002191@ds.study.iitm.ac.in</p>
         <aside class="notes">
           Welcome everyone. This deck showcases modern presentation features: markdown slides, animated fragments, syntax-highlighted code, math, and speaker notes.
           Use the arrow keys to navigate. Press <kbd>s</kbd> to open speaker view.
@@ -163,13 +163,10 @@ for k in kpis:
       progress: true,
       center: false,
       plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
-      // Optional: smaller margins to fit more content comfortably
       margin: 0.08,
     });
     deck.initialize({
-      // Math plugin configuration (KaTeX)
       math: {
-        // KaTeX is already on the page via CSS; plugin loads JS for rendering
         delimiters: [
           { left: "$$", right: "$$", display: true },
           { left: "$", right: "$", display: false },
