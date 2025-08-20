@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quarterly Earnings – Interactive RevealJS Deck</title>
+
+  <!-- RevealJS core & theme -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme" />
+
+  <!-- KaTeX for math rendering (used by Reveal Math plugin) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-66CmkxfxkX/ZT3gW3cZ2Jm4d6V/NF2QKgAe6qQNvwdYzM6ofq0pPAHFMNw8XVXKf" crossorigin="anonymous" />
+
+  <style>
+    :root { --accent: #6ee7b7; }
+    .reveal .slides { text-align: left; }
+    .reveal h1, .reveal h2, .reveal h3 { letter-spacing: .3px; }
+    .brand-footer {
+      position: fixed; left: 0; right: 0; bottom: 0; font-size: 14px; opacity: .7;
+      padding: 8px 16px; display: flex; justify-content: space-between; align-items: center;
+      background: linear-gradient(90deg, rgba(0,0,0,.35), rgba(0,0,0,0));
+      pointer-events: none; /* don't block clicks */
+    }
+    .chip { border: 1px solid var(--accent); color: var(--accent); padding: 2px 8px; border-radius: 999px; font-size: 12px; }
+    .muted { opacity: .8; }
+    code { font-size: 0.9em; }
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 12px;
+    }
+    .kpi {
+      border-radius: 16px; padding: 16px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- TITLE -->
+      <section data-auto-animate>
+        <h1>Quarterly Earnings Report</h1>
+        <p class="muted">Interactive presentation powered by <strong>RevealJS</strong></p>
+        <p class="chip">Contact: 24f3002191@ds.study.iitm.ac.in</p>
+        <aside class="notes">
+          Welcome everyone. This deck showcases modern presentation features: markdown slides, animated fragments, syntax-highlighted code, math, and speaker notes.
+          Use the arrow keys to navigate. Press <kbd>s</kbd> to open speaker view.
+        </aside>
+      </section>
+
+      <!-- KPI FRAGMENTS -->
+      <section data-auto-animate>
+        <h2>Highlights (Q/Q)</h2>
+        <div class="kpi-grid">
+          <div class="kpi fragment"><h3>Revenue</h3><div>₹ 4,320 Cr <small class="muted">(+6.2%)</small></div></div>
+          <div class="kpi fragment"><h3>Operating Margin</h3><div>19.4% <small class="muted">(+80 bps)</small></div></div>
+          <div class="kpi fragment"><h3>EPS (Dil.)</h3><div>₹ 18.7 <small class="muted">(+4.1%)</small></div></div>
+        </div>
+        <ul style="margin-top: 18px;">
+          <li class="fragment">Subscription revenue up on stronger retention.</li>
+          <li class="fragment">Cost discipline improved Opex leverage.</li>
+          <li class="fragment">Cash conversion remained robust.</li>
+        </ul>
+        <aside class="notes">
+          Reveal each KPI with fragments. Briefly contextualize drivers: demand resilience, pricing, and unit economics.
+        </aside>
+      </section>
+
+      <!-- MARKDOWN SLIDE -->
+      <section data-markdown>
+        <textarea data-template>
+### Strategy Update _(Markdown slide)_
+
+- **Digital origination** share now **72%**  
+- **Risk**: PD/LGD models refreshed with latest macro inputs  
+- **Cloud migration**: Core analytics on managed services  
+- **Data**: Consolidated golden sources for finance & risk  
+
+> Speaker cue: Keep this sharp; focus on outcomes, not activities.
+        </textarea>
+        <aside class="notes">
+          This slide is authored in Markdown to show Reveal's markdown plugin. Keep bullets tight and outcome-oriented.
+        </aside>
+      </section>
+
+      <!-- MATH: FINANCIAL FORMULAS -->
+      <section>
+        <h2>Financial Math</h2>
+        <p>**Net Present Value (NPV)**</p>
+        <p style="font-size: 110%;">
+          $$\mathrm{NPV} = \sum_{t=1}^{T} \frac{CF_t}{(1+r)^t} - C_0$$
+        </p>
+        <p>**Compound Annual Growth Rate (CAGR)**</p>
+        <p style="font-size: 110%;">
+          $$\mathrm{CAGR} = \left( \frac{\text{Ending}}{\text{Beginning}} \right)^{\tfrac{1}{n}} - 1$$
+        </p>
+        <aside class="notes">
+          Tie back to valuation: use NPV for project appraisal; CAGR for trend communication. Don't over-index on single-period optics.
+        </aside>
+      </section>
+
+      <!-- CODE: SYNTAX HIGHLIGHTING -->
+      <section>
+        <h2>Code Sample: KPI Snapshot (Python)</h2>
+        <pre><code class="language-python">from dataclasses import dataclass
+from typing import List
+
+@dataclass
+class KPI:
+    name: str
+    value: float
+    delta: float  # QoQ change
+
+kpis: List[KPI] = [
+    KPI("Revenue (Cr)", 4320, +6.2),
+    KPI("Op Margin (%)", 19.4, +0.8),
+    KPI("EPS", 18.7, +4.1),
+]
+
+for k in kpis:
+    arrow = "▲" if k.delta >= 0 else "▼"
+    print(f"{k.name:15} {k.value:>8} ({arrow}{abs(k.delta)})")
+</code></pre>
+        <aside class="notes">
+          Demonstrates syntax highlighting via the Highlight plugin. Keep code visible but minimal.
+        </aside>
+      </section>
+
+      <!-- LIVE DEMO HINTS WITH FRAGMENTS -->
+      <section>
+        <h2>Q&amp;A / Next Steps</h2>
+        <ul>
+          <li class="fragment">Publish on <strong>GitHub Pages</strong></li>
+          <li class="fragment">Share the link with stakeholders</li>
+          <li class="fragment">Attach PDF export to the board pack</li>
+        </ul>
+        <aside class="notes">
+          After publishing, verify rendering on mobile. Export to PDF via the built-in print stylesheet if needed.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="brand-footer">
+    <span class="muted">Quarterly Earnings – RevealJS</span>
+    <span class="chip">24f3002191@ds.study.iitm.ac.in</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/math/math.js"></script>
+
+  <script>
+    // Initialize RevealJS
+    const deck = new Reveal({
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      center: false,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+      // Optional: smaller margins to fit more content comfortably
+      margin: 0.08,
+    });
+    deck.initialize({
+      // Math plugin configuration (KaTeX)
+      math: {
+        // KaTeX is already on the page via CSS; plugin loads JS for rendering
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false },
+          { left: "\\(", right: "\\)", display: false },
+          { left: "\\[", right: "\\]", display: true }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
